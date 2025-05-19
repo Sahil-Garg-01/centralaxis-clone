@@ -1,30 +1,46 @@
-
 import { motion } from 'framer-motion';
 
 export default function MovingPanelSection() {
+  const logos = [
+    '/logos/amd.png',
+    '/logos/cisco.png',
+    '/logos/dell.png',
+    '/logos/hpe.png',
+    '/logos/intel.png',
+    '/logos/lenovo.png',
+    '/logos/schneider.png',
+  ];
+
   return (
     <section className="bg-contentBg py-8">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
         <p className="text-textLight text-sm mt-6">
-            Seamless integrations with any data center hardware
-                </p>
-                
-        {/* Moving Panel */}
-        <motion.div
-          className="inline-block bg-gray-800 text-white px-6 py-3 rounded-lg shadow-lg mb-6"
-          initial={{ x: '100%' }}
-          animate={{ x: '-100%' }}
-          transition={{
-            repeat: Infinity,
-            repeatType: 'loop',
-            duration: 10,
-            ease: 'linear',
-          }}
-        >
-          <p className="text-lg md:text-xl font-poppins">
-            Empowering the Future of Data Centers with AI
-          </p>
-        </motion.div>
+          Seamless integrations with any data center hardware
+        </p>
+
+        {/* Scrolling Logos Panel */}
+        <div className="overflow-hidden my-6">
+          <motion.div
+            className="flex space-x-12 w-max"
+            initial={{ x: '0%' }}
+            animate={{ x: '-50%' }}
+            transition={{
+              repeat: Infinity,
+              repeatType: 'loop',
+              duration: 30,
+              ease: 'linear',
+            }}
+          >
+            {logos.concat(logos).map((src, index) => (
+              <img
+                key={index}
+                src={src}
+                alt="partner logo"
+                className="h-10 md:h-12 object-contain grayscale hover:grayscale-0 transition duration-300"
+              />
+            ))}
+          </motion.div>
+        </div>
 
         {/* Static Text */}
         <div className="space-y-4">

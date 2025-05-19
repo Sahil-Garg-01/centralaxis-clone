@@ -3,6 +3,7 @@ import { Suspense, lazy } from 'react';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import MovingPanelSection from './components/MovingPanelSection';
+import MiddleComponent from './components/MiddleComponent';
 
 // Dynamically import components for code-splitting
 const ContentSection = lazy(() => import('./components/ContentSection'));
@@ -37,6 +38,7 @@ export default function App() {
           ]}
           image="https://www.centralaxis.com/landing/networking-b.mp4"
           imageAlt="Network Management Dashboard"
+          reverse={true}
         />
         <ContentSection
           title="Asset Management"
@@ -59,6 +61,7 @@ export default function App() {
           ]}
           image="https://www.centralaxis.com/landing/SinglePane-b.mp4"
           imageAlt="Single Pane of Glass Dashboard"
+          reverse={true}
         />
         <ContentSection
           title="Built-In Compliance"
@@ -76,12 +79,13 @@ export default function App() {
           features={[
             "Model new architectures and see detailed implications on power and cooling needs",
             "Design unique specifications for your data center",
-            "Our continuous monitoring is the most advanced on the market, lowering costs while increasing reliability",
+            "   Our continuous monitoring is the most advanced on the market, lowering costs while increasing reliability",
           ]}
           image="https://www.centralaxis.com/landing/dc-planning.mp4"
           imageAlt="Data Center Planning Dashboard"
+          reverse={true}
         />
-        
+        <MiddleComponent/>
         <Footer />
       </Suspense>
     </div>
